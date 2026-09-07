@@ -30,7 +30,9 @@ begin
     end;
 end;
 
-
+procedure nomVal(var val: boolean);
+begin
+    
 
 procedure dosMaxPunt(dig, codAct: integer; var max1, max2, codMax1, codMax2: integer);
 
