@@ -1,9 +1,9 @@
-//modulo para: 2 puntajes altos, para descomponer un numero entero en cifras,
-// y modulo si el nickname es valido. MODULOS PARA LEER Y PROCESAR DATOS DE CADA JUGADOR.
 
-program tt;
+
+
+program pixelCup;
 const
-    players = 20; 
+    players = 2;
 
 function esDig(c: char): boolean;
 begin
@@ -32,15 +32,15 @@ end;
 
 procedure nomVal(var val: boolean);
 var
-    c: char;
-begin
+    c
+begin: char;
     val:= true;
-    writeln('ingrese la primer letra del nombre: ');
+    writeln('ingrese la primer letra del nombre (hasta "."): ');
     read(c);
     while (c <> '.') do begin
         if not (esDig(c) or esMinus(c)) then
             val:= false;
-        writeln('ingrese la siguiente letra del nombre. hasta ('.').');
+        
         read(c);
     end;
     readln;
@@ -48,12 +48,14 @@ end;
 
     
 
-procedure dosMaxPunt(dig: integer; codAct: integer; var max1, max2, codMax1, codMax2: integer);
+procedure dosMaxPunt(dig: integer; codAct: integer; var max1, max2, 
+codMax1, codMax2: integer);
 
 begin
 
     if dig > max1 then begin  
         max2:= max1;
+        codMax2:= codMax1;
         max1:= dig;
         codMax1:= codAct;
     end
@@ -68,8 +70,8 @@ begin
     writeln('ingrese puntaje (de 0 a 1000)');
     readln(punt);
     writeln('ingrese codigo, de 4 cifras (de 1000 a 9999)');
-    readln(cod);
-    nomVal(val);
+    
+    nomVal(val);readln(cod);
 end;
 
 var
@@ -78,6 +80,8 @@ var
     valido:boolean;
     codMaximo1, codMaximo2: integer;
     cantVal: integer;
+    i: integer;
+    sumaCifras, cantImpares: integer;
 begin
     cantVal:= 0;
     maximo1:=-1;
@@ -87,11 +91,27 @@ begin
         procesarJ(puntaje, codigo, valido);
         dosMaxPunt(puntaje, codigo, maximo1, maximo2, codMaximo1, codMaximo2);
     
-        if (nomVal) then
+        if valido then
             cantVal:= cantVal + 1;
     end;
-    
+    descompNum(codMaximo1,sumaCifras, cantImpares);
 
+    writeln('el primer puntaje maximo:', maximo1, ', con codigo', codMaximo1,
+    ' el segundo puntaje maximo:', maximo2, ', con codigo', codMaximo2);
+    writeln('el codigo del puntaje maximo: ', codMaximo1,
+     ' la suma de sus cifras es: ', sumaCifras, ' y la cantidad de cifras impares son: ', cantImpares);
+    writeln(' la cantidad de nicks validos son: ', cantVal);
 end.
 
     
+
+
+
+
+
+
+
+
+
+
+
