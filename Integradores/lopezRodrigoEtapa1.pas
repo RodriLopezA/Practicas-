@@ -15,7 +15,7 @@ begin
     esMinus:= c in ['a'..'z'];
 end;
 
-procedure descNum(num: integer; var sumaC, cantImp: integer);
+procedure descompNum(num: integer; var sumaC, cantImp: integer);
 var
     dig: integer;
 begin
@@ -31,10 +31,22 @@ begin
 end;
 
 procedure nomVal(var val: boolean);
+var
+    c: char;
 begin
+    val:= true;
+    read(c);
+    while c <> '.' do begin
+        if not (esDig(c) or esMinus(c)) then
+            val:= false;
+        read(c);
+    end;
+    readln;
+end;
+
     
 
-procedure dosMaxPunt(dig, codAct: integer; var max1, max2, codMax1, codMax2: integer);
+procedure dosMaxPunt(dig: integer; codAct: integer; var max1, max2, codMax1, codMax2: integer);
 
 begin
 
@@ -48,4 +60,6 @@ begin
         codMax2:= codAct;
     end;
 end;
+
+procedure procesarJ();
     
