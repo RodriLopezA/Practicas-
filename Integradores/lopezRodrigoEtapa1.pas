@@ -70,8 +70,8 @@ begin
     writeln('ingrese puntaje (de 0 a 1000)');
     readln(punt);
     writeln('ingrese codigo, de 4 cifras (de 1000 a 9999)');
-    
-    nomVal(val);readln(cod);
+    readln(cod);
+    nomVal(val);
 end;
 
 var
