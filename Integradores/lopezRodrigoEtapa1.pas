@@ -3,7 +3,7 @@
 
 program pixelCup;
 const
-    players = 20;
+    players = 2;
 
 function esDig(c: char): boolean;
 begin
@@ -32,8 +32,8 @@ end;
 
 procedure nomVal(var val: boolean);
 var
-    c
-begin: char;
+    c: char;
+begin
     val:= true;
     writeln('ingrese la primer letra del nombre (hasta "."): ');
     read(c);
