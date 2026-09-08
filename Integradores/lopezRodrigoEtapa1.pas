@@ -35,10 +35,12 @@ var
     c: char;
 begin
     val:= true;
+    writeln('ingrese la primer letra del nombre: ');
     read(c);
-    while c <> '.' do begin
+    while (c <> '.') do begin
         if not (esDig(c) or esMinus(c)) then
             val:= false;
+        writeln('ingrese la siguiente letra del nombre. hasta ('.').');
         read(c);
     end;
     readln;
@@ -61,5 +63,35 @@ begin
     end;
 end;
 
-procedure procesarJ();
+procedure procesarJ(var punt, cod: integer; var val: boolean );
+begin
+    writeln('ingrese puntaje (de 0 a 1000)');
+    readln(punt);
+    writeln('ingrese codigo, de 4 cifras (de 1000 a 9999)');
+    readln(cod);
+    nomVal(val);
+end;
+
+var
+    puntaje, codigo: integer;
+    maximo1, maximo2: integer;
+    valido:boolean;
+    codMaximo1, codMaximo2: integer;
+    cantVal: integer;
+begin
+    cantVal:= 0;
+    maximo1:=-1;
+    maximo2:=-1;
+    
+    for i:= 1 to players do begin
+        procesarJ(puntaje, codigo, valido);
+        dosMaxPunt(puntaje, codigo, maximo1, maximo2, codMaximo1, codMaximo2);
+    
+        if (nomVal) then
+            cantVal:= cantVal + 1;
+    end;
+    
+
+end.
+
     
