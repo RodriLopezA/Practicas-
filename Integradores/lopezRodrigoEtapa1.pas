@@ -3,7 +3,7 @@
 
 program pixelCup;
 const
-    players = 2;
+    players = 20;
 
 function esDig(c: char): boolean;
 begin
